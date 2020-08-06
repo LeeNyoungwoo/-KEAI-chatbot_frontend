@@ -1,11 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Image } from 'semantic-ui-react'
+import chatbot_img from './chatbot.png';
 import './LeftGrid.css';
 
-export default class ChatRoom extends Component {
-    render() {
-        return (
-            <div className="leftGrid">
+export default function LeftGrid() {
+    return (
+        <div className="leftGrid">
+            <div className="leftGridImage">
+                <Image style={{width: '200px', height: 'auto'}} src={chatbot_img}/>
+            </div>
+            <div className="leftGridTag">
+                # Bot Name
+            </div>
         </div>
-        );
-    }
+    );
 }
