@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/*
+KEAI Chatting App UI
+Desription: UI for chatting app in KEAI Lab
+Contributers: NW Lee
+*/
+
+import React from 'react'
+import './App.css'
+import { Route, BrowserRouter as Router } from "react-router-dom";
+
+import ChatRoom from './screens/ChatRoom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <main>
+        <Route exact path="/" component={ChatRoom} />
+      </main>
+    </Router>
   );
 }
 
