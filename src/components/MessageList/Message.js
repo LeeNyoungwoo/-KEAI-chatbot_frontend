@@ -9,16 +9,12 @@ export default class Message extends Component {
             <div>
                 {
                     (() => {
-                        if (type === 'system') 
-                            return (<div className="messageSectionSystem">
-                                        <span style={{fontWeight: "bold", whiteSpace: 'pre-wrap'}}>{text}</span>
-                                    </div>);
-                        if (type === 'bot')
+                        if (type === true)
                             return  (<div className="messageSection messageSectionBot">
                                         <span className="messageSectionBody">{text}</span>
                                         <span className="messageSectionTime">{time}</span>
                                     </div>);
-                        if (type === 'user')
+                        if (type === false)
                             return (<div className="messageSection messageSectionUser">
                                         <span className="messageSectionTime">{time}</span>
                                         <div className="messageSectionCenter">

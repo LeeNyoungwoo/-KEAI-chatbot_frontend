@@ -1,30 +1,38 @@
 import { createAction, handleActions } from 'redux-actions'
 
 const TURN = 'chat/TURN' // 대화 턴 변경
-const BOT_UT = 'chat/BOT_UT' // 봇 발화 추가
-const USER_UT = 'chat/USER_UT' // 유저 발화 추가
+const CHAT_LIST = 'chat/CHAT_LIST' // 발화 추가
+const BOT_INFO = 'chat/BOT_INFO' // 봇 발화 세부 정보 갱신
 const RESET_DATA = 'result/RESET' // 데이터 초기화
 
-let bot_id = 0
-let user_id = 0
+let chat_id = 0
 
 export const changeTurn= createAction(TURN)
-export const botAdd = createAction(BOT_UT, object => ({ object, bot_id: bot_id++ }))
-export const userAdd = createAction(USER_UT, object => ({ object, user_id: user_id++ }))
+export const chatAdd = createAction(CHAT_LIST, object => ({ object, chat_id: chat_id++ }))
+export const addBotInfo = createAction(BOT_INFO, object => ({ object }))
 export const resetData = createAction(RESET_DATA)
 
+const time = new Date()
 
 const initialState = {
-    // bot=true, user=false
+    // BOT=true, USER=false
     turn: true,
-    userList: [
+    chatList: [
         // Example DataType
         // {
-        //     id: 0, 
-        //     text: 'Hi, I'm chatbot',
+        //     id: 0,
+        //     type: true,
+        //     time: time.toLocaleTimeString(),
+        //     text: 'Hi, I`m chatbot',
         // },
     ],
-    botList: [],
+    botInfo: {
+        // Example DataType
+        // text: "Oh, will you have a vacation?",
+        // happiness : 73,
+        // sadness: 15,
+        // neutral: 12,
+    }
 }
 
 export default handleActions(
@@ -33,25 +41,29 @@ export default handleActions(
             ...state,
             turn: !state.turn
         }),
-        [BOT_UT]: (state, action) => ({
+        [CHAT_LIST]: (state, action) => ({
             ...state,
-            botList: state.botList.concat({
-                id: action.payload.bot_id,
+            chatList: state.chatList.concat({
+                id: action.payload.chat_id,
+                type: action.payload.object.type,
+                time: action.payload.object.time,
                 text: action.payload.object.text,
             })
         }),
-        [USER_UT]: (state, action) => ({
+        [BOT_INFO]: (state, action) => ({
             ...state,
-            userList: state.botList.concat({
-                id: action.payload.bot_id,
+            botInfo: {
                 text: action.payload.object.text,
-            })
+                happiness: action.payload.object.happiness,
+                sadness: action.payload.object.sadness,
+                neutral: action.payload.object.neutral
+            }
         }),
         [RESET_DATA]: (state) => ({
             ...state,
             turn: true,
-            userList: initialState.userList,
-            botList: initialState.botList,
+            chatList: initialState.chatList,
+            botInfo: initialState.botInfo,
         }),
     },
     initialState

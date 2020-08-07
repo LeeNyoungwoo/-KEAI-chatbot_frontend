@@ -7,7 +7,7 @@ export default function LeftGrid() {
     return (
         <div className="leftGrid">
             <div className="leftGridImage">
-                <Image style={{width: '200px', height: 'auto'}} src={chatbot_img}/>
+                <Image style={{width: '20vh', height: 'auto'}} src={chatbot_img}/>
             </div>
             <div className="leftGridTag">
                 # Bot Name

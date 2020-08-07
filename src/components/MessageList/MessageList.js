@@ -8,10 +8,10 @@ export default class MessageList extends Component {
     }
 
     render() {
-        const { messageList } = this.props;
+        const { chatList } = this.props;
         
         // render whole messages during conversation
-        const messages = messageList.map(
+        const messages = chatList.map(
             ({id, type, time, text}, i) => (
                 <div key={i}>
                     <Message
