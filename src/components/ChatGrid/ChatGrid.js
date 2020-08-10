@@ -29,7 +29,7 @@ export default function ChatGrid(props) {
             neutral: Math.floor(Math.random() * 100),
         }
 
-        if (props.turn == true)
+        if (props.turn === true)
             props.conv_addBotInfo(info)
 
         props.conv_chatAdd(utterance)
@@ -39,7 +39,7 @@ export default function ChatGrid(props) {
     }
 
     const handleKeyPress = (e) => {
-        if(e.key === 'Enter') {
+        if(input !== '' && e.key === 'Enter') {
             handleCreate();
         }
     }
@@ -54,6 +54,7 @@ export default function ChatGrid(props) {
                         <span>{time.toLocaleTimeString()}</span>
                     </div>
                     <MessageListContainer />
+                    <div style={{height:'2vh'}}></div>
                     <div ref={messagesEnd} />
                 </main>
                 <div className="textInputBox">

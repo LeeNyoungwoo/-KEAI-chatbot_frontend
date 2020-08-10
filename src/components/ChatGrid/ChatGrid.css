@@ -25,9 +25,10 @@ div {
 
 .chatRoom .dateSection {
     text-align: center;
-    font-size: 13px;
+    font-size: 1.8vh;
+    height: 2vh;
     color: rgba(0, 0, 0, 0.5);
-    margin-bottom: 50px;
+    margin-bottom: 7vh;
 }
 
 .textInputBox {

@@ -3,10 +3,6 @@ import Message from "./Message"
 
 export default class MessageList extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { chatList } = this.props;
         

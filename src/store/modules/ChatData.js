@@ -12,8 +12,6 @@ export const chatAdd = createAction(CHAT_LIST, object => ({ object, chat_id: cha
 export const addBotInfo = createAction(BOT_INFO, object => ({ object }))
 export const resetData = createAction(RESET_DATA)
 
-const time = new Date()
-
 const initialState = {
     // BOT=true, USER=false
     turn: true,
