@@ -14,7 +14,7 @@ export const resetData = createAction(RESET_DATA)
 
 const initialState = {
     // BOT=true, USER=false
-    turn: true,
+    turn: false,
     chatList: [
         // Example DataType
         // {
@@ -46,6 +46,8 @@ export default handleActions(
                 type: action.payload.object.type,
                 time: action.payload.object.time,
                 text: action.payload.object.text,
+                img: action.payload.object.img,
+                src: action.payload.object.src,
             })
         }),
         [BOT_INFO]: (state, action) => ({

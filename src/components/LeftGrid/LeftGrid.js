@@ -10,7 +10,7 @@ export default function LeftGrid() {
                 <Image style={{width: '20vh', height: 'auto'}} src={chatbot_img}/>
             </div>
             <div className="leftGridTag">
-                # Bot Name
+                # KEAI Bot
             </div>
         </div>
     );
